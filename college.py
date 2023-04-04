@@ -4,7 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from PIL import Image
-from streamlit_option_menu import option_menu
+
 
 st.title('Course Review')
 
