@@ -906,7 +906,7 @@ with tab1:
         st.markdown('1-Very Unsatisfied 2-Unsatisfied 3-Neutral 4-Satisfied 5-Satisfied')
         
         df_g = df.groupby(['Course_performance', 'Branch']).size().reset_index()
-        df_g['percentage'] = apt.groupby(['Course_performance', 'Branch']).size().groupby(level=0).apply(lambda x: 100 * x / float(x.sum())).values
+        df_g['percentage'] = df.groupby(['Course_performance', 'Branch']).size().groupby(level=0).apply(lambda x: 100 * x / float(x.sum())).values
         df_g.columns = ['Course_performance', 'Branch', 'Counts', 'Percentage']
         fig= px.bar(df_g, x='Course_performance', y=['Counts'], color='Branch',barmode = 'group',title = "Distribution of Course_performance with Branch",  text=df_g['Percentage'].apply(lambda x: '{0:1.2f}%'.format(x)))
         
